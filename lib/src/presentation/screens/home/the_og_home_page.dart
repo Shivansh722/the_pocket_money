@@ -2,18 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/appbar.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/drawer.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/job_tile.dart';
-import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/green_tile.dart';
- // Ensure this import is correct
+import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/company_tile.dart';
+import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/green_tile.dart'; // Ensure this import is correct
 
+enum Page { Home, Page1, Page2 }
 
-class StudentHomePage extends StatelessWidget {
+class StudentHomePage extends StatefulWidget {
   const StudentHomePage({super.key});
 
   @override
+  State<StudentHomePage> createState() => _StudentHomePageState();
+}
+
+class _StudentHomePageState extends State<StudentHomePage> {
+  Page _currentPage = Page.Home;
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: SingleChildScrollView(
+    final List<Widget> _pages = [
+      // Replace with the content of Page 1
+      Center(
+        child: Text('This is Page 1'),
+      ),
+      // Replace with the content of Page 2
+      Center(
+        child: Text('This is Page 2'),
+      ),
+      // Existing Home Page content
+      SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -53,6 +69,37 @@ class StudentHomePage extends StatelessWidget {
                 },
               ),
               SizedBox(height: 16.0),
+              // Horizontal list of Company Tiles
+              Container(
+                height: 120.0, // Adjust the height as needed
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      CompanyTile(
+                        imageAsset: 'assets/dominos.png',
+                        companyName: 'Dominos',
+                        rating: 4.5,
+                        reviewCount: 120,
+                      ),
+                      CompanyTile(
+                        imageAsset: 'assets/subway.png',
+                        companyName: 'Subway',
+                        rating: 4.0,
+                        reviewCount: 95,
+                      ),
+                      CompanyTile(
+                        imageAsset: 'assets/mcD.png',
+                        companyName: 'McDonald\'s',
+                        rating: 4.2,
+                        reviewCount: 200,
+                      ),
+                      // Add more CompanyTiles as needed
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.0),
               // Recommended Jobs section
               Text(
                 'Recommended Jobs',
@@ -64,19 +111,19 @@ class StudentHomePage extends StatelessWidget {
                 children: [
                   JobTile(
                     imageAsset: 'assets/dominos.png',
-                    companyName: 'Company One',
+                    companyName: 'Dominos',
                     jobLocation: 'Location One',
                     postedTime: '3 days ago',
                   ),
                   JobTile(
                     imageAsset: 'assets/subway.png',
-                    companyName: 'Company Two',
+                    companyName: 'Subway',
                     jobLocation: 'Location Two',
                     postedTime: '1 week ago',
                   ),
                   JobTile(
                     imageAsset: 'assets/mcD.png',
-                    companyName: 'Company Three',
+                    companyName: 'McDonald\'s',
                     jobLocation: 'Location Three',
                     postedTime: '2 weeks ago',
                   ),
@@ -86,6 +133,31 @@ class StudentHomePage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    ];
+
+    return Scaffold(
+      appBar: CustomAppBar(),
+      drawer: HomeStudentDrawer(),
+      body: _pages[_currentPage.index],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentPage.index,
+        onTap: (int index) => setState(() => _currentPage = Page.values[index]),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.format_list_bulleted),
+            label: 'Page 1',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Page 2',
+          ),
+        ],
       ),
     );
   }
