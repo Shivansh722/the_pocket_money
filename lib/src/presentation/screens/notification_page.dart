@@ -10,24 +10,24 @@ class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      // appBar: AppBar(
 
-        title: const Text(
-          'Notifications',
+      //   title: const Text(
+      //     'Notifications',
           
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,),
+      //     style: TextStyle(
+      //       fontSize: 20,
+      //       fontWeight: FontWeight.bold,),
           
-          ),
-          centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      //     ),
+      //     centerTitle: true,
+      //   leading: IconButton(
+      //     icon: const Icon(Icons.arrow_back_ios),
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //   ),
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
