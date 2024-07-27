@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:pocket_money/src/presentation/screens/form/form_page1.dart';
@@ -113,7 +113,7 @@ class _FormPageState extends State<FormPage> {
         Placemark place = placemarks[0];
         setState(() {
           _locationDetails =
-              '${place.subAdministrativeArea},${place.locality},${place.administrativeArea}';
+              '${place.locality},${place.administrativeArea}';
           _nextPage(); // Navigate to the next page after getting the location details
         });
       }
@@ -123,7 +123,7 @@ class _FormPageState extends State<FormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(_titles[_currentPage]),
         leading: _currentPage > 0
@@ -135,8 +135,24 @@ class _FormPageState extends State<FormPage> {
       ),
       body: Column(
         children: [
-          LinearProgressIndicator(
-            value: (_currentPage + 1) / 8,
+          Stack(
+            children: [
+              // Road image
+              Positioned(
+                child: Image.asset(
+                  'assets/road.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // Mascot
+              Positioned(
+                left: MediaQuery.of(context).size.width * (_currentPage / 7),
+                child: Image.asset(
+                  'assets/mascot.png',
+                  height: 100,
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: PageView(
@@ -167,7 +183,6 @@ class _FormPageState extends State<FormPage> {
                     return const Page7();
                   case 7:
                     return const Page8();
-                  // Placeholder widgets for the remaining steps
                   default:
                     return PlaceholderStep(step: index + 1);
                 }

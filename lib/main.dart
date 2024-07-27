@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Pocket Money',
       debugShowCheckedModeBanner: false,
       theme: lightMode,
-      home: const StudentHomePage(),
+      home: const SplashPage(),
     );
   }
 }

@@ -12,11 +12,7 @@ class SuccessPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 100,),
-            const Icon(
-              Icons.check_circle,
-              size: 100,
-              color: Colors.green,
-            ),
+            Image.asset('assets/submit1.gif', width: 300, height: 250),
             const SizedBox(height: 80),
             const Text(
               'Congratulations',
@@ -28,11 +24,15 @@ class SuccessPage extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 120),
-            const Text(
-              'Pro-tip: Keep updating your profile to get more calls from HRs',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+            const Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                textAlign: TextAlign.center,
+                'Pro-tip: Keep updating your profile to get more calls from HRs',
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
             ),
-            const Spacer(),
+            const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: ElevatedButton(
