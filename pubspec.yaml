@@ -42,6 +42,8 @@ dependencies:
   image_picker_web:
   geolocator:
   geocoding:
+  flutter_typeahead:
+  textfield_tags:
 
 dev_dependencies:
   flutter_test:

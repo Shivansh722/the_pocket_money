@@ -7,15 +7,21 @@ import 'package:geocoding/geocoding.dart';
 import 'package:pocket_money/src/presentation/screens/form/form_page1.dart';
 import 'package:pocket_money/src/presentation/screens/form/form_page2.dart';
 import 'package:pocket_money/src/presentation/screens/form/form_page3.dart';
+import 'package:pocket_money/src/presentation/screens/form/form_page4.dart';
+import 'package:pocket_money/src/presentation/screens/form/form_page5.dart';
+import 'package:pocket_money/src/presentation/screens/form/form_page6.dart';
+import 'package:pocket_money/src/presentation/screens/form/form_page7.dart';
+import 'package:pocket_money/src/presentation/screens/form/form_page8.dart';
+import 'package:pocket_money/src/presentation/screens/form/successfull_page.dart';
 
-class MultiStepForm extends StatefulWidget {
-  const MultiStepForm({super.key});
+class FormPage extends StatefulWidget {
+  const FormPage({super.key});
 
   @override
-  State<MultiStepForm> createState() => _MultiStepFormState();
+  State<FormPage> createState() => _FormPageState();
 }
 
-class _MultiStepFormState extends State<MultiStepForm> {
+class _FormPageState extends State<FormPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
   File? _profileImage;
@@ -27,9 +33,9 @@ class _MultiStepFormState extends State<MultiStepForm> {
     'Location Details',
     'Education Details',
     'Skills',
-    'Preffered Language',
-    'Preffered Job Type',
-    'Preffered Job Role',
+    'Preferred Language',
+    'Preferred Job Type',
+    'Preferred Job Role',
   ];
 
   final ImagePicker _picker = ImagePicker();
@@ -72,8 +78,7 @@ class _MultiStepFormState extends State<MultiStepForm> {
     if (kIsWeb) {
       // Use a placeholder for web testing
       setState(() {
-        _locationDetails =
-            'Placeholder, Placeholder, Placeholder';
+        _locationDetails = 'Placeholder, Placeholder, Placeholder';
         _nextPage(); // Navigate to the next page after setting placeholder
       });
     } else {
@@ -152,6 +157,16 @@ class _MultiStepFormState extends State<MultiStepForm> {
                     return Page3(
                       locationDetails: _locationDetails,
                     );
+                  case 3:
+                    return const Page4();
+                  case 4:
+                    return const Page5();
+                  case 5:
+                    return const Page6();
+                  case 6:
+                    return const Page7();
+                  case 7:
+                    return const Page8();
                   // Placeholder widgets for the remaining steps
                   default:
                     return PlaceholderStep(step: index + 1);
@@ -189,7 +204,10 @@ class _MultiStepFormState extends State<MultiStepForm> {
                       ),
                     ),
                     onPressed: () {
-                      // Handle form submission
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SuccessPage()));
                     },
                     child: const Text(
                       'Submit',
@@ -203,6 +221,7 @@ class _MultiStepFormState extends State<MultiStepForm> {
     );
   }
 }
+
 class PlaceholderStep extends StatelessWidget {
   final int step;
 
