@@ -50,6 +50,8 @@ dependencies:
   permission_handler:
   http:
 
+  flutter_typeahead:
+  textfield_tags:
 
 dev_dependencies:
   flutter_test:
