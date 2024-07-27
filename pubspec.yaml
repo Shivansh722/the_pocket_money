@@ -36,12 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   flutter_onboarding_slider:
-  dynamic_multi_step_form:
-  fluent_ui:
-  image_picker:
-  image_picker_web:
-  geolocator:
-  geocoding:
+  navbar_router: ^0.7.5
+  dotted_border:
+
 
 dev_dependencies:
   flutter_test:
