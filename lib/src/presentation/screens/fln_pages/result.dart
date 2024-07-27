@@ -1,112 +1,75 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-class ResultMeterScreen extends StatefulWidget {
-  @override
-  _ResultMeterScreenState createState() => _ResultMeterScreenState();
-}
+class ResultMeterScreen extends StatelessWidget {
+  final String fluencyResult;
 
-class _ResultMeterScreenState extends State<ResultMeterScreen> {
-  double _result = 0.0;
-  Color _meterColor = Colors.green;
-
-  @override
-  void initState() {
-    super.initState();
-    _generateRandomResult();
-  }
-
-  void _generateRandomResult() {
-    final random = Random();
-    setState(() {
-      _result = random.nextDouble() * 100; // Random value between 0 and 100
-      _meterColor = _getMeterColor(_result);
-    });
-  }
-
-  Color _getMeterColor(double result) {
-    if (result < 33) {
-      return Colors.red;
-    } else if (result < 66) {
-      return Colors.yellow;
-    } else {
-      return Colors.green;
-    }
-  }
+  ResultMeterScreen({required this.fluencyResult});
 
   @override
   Widget build(BuildContext context) {
+    double value;
+    Color rangeColor;
+
+    switch (fluencyResult) {
+      case 'green':
+        value = 75;
+        rangeColor = Colors.green;
+        break;
+      case 'yellow':
+        value = 50;
+        rangeColor = Colors.yellow;
+        break;
+      case 'red':
+        value = 25;
+        rangeColor = Colors.red;
+        break;
+      default:
+        value = 0;
+        rangeColor = Colors.grey;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Result Meter'),
-        centerTitle: true,
+        title: Text('Fluency Result'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Result: ${_result.toStringAsFixed(2)}%',
-              style: TextStyle(fontSize: 24),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: 200,
-              height: 200,
-              child: CustomPaint(
-                painter: MeterPainter(_result, _meterColor),
-              ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _generateRandomResult,
-              child: Text('Generate New Result'),
-            ),
+        child: SfRadialGauge(
+          axes: <RadialAxis>[
+            RadialAxis(
+              minimum: 0,
+              maximum: 100,
+              ranges: <GaugeRange>[
+                GaugeRange(startValue: 0, endValue: 33, color: Colors.red, label: 'Low', sizeUnit: GaugeSizeUnit.factor, startWidth: 0.1, endWidth: 0.1),
+                GaugeRange(startValue: 33, endValue: 66, color: Colors.yellow, label: 'Medium', sizeUnit: GaugeSizeUnit.factor, startWidth: 0.1, endWidth: 0.1),
+                GaugeRange(startValue: 66, endValue: 100, color: Colors.green, label: 'High', sizeUnit: GaugeSizeUnit.factor, startWidth: 0.1, endWidth: 0.1),
+              ],
+              pointers: <GaugePointer>[
+                NeedlePointer(
+                  value: value,
+                  enableAnimation: true,
+                )
+              ],
+              annotations: <GaugeAnnotation>[
+                GaugeAnnotation(
+                  widget: Container(
+                    child: Text(
+                      fluencyResult,
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: rangeColor,
+                      ),
+                    ),
+                  ),
+                  angle: 90,
+                  positionFactor: 0.5,
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
-
-class MeterPainter extends CustomPainter {
-  final double result;
-  final Color color;
-
-  MeterPainter(this.result, this.color);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.fill;
-
-    double angle = (result / 100) * 2 * pi;
-    Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = min(size.width / 2, size.height / 2);
-
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      -pi / 2,
-      angle,
-      true,
-      paint,
-    );
-
-    paint.color = Colors.grey.shade300;
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      -pi / 2 + angle,
-      2 * pi - angle,
-      true,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
-}
-
-

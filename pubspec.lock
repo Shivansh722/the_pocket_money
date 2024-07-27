@@ -805,6 +805,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
+  record_mp3:
+    dependency: "direct main"
+    description:
+      name: record_mp3
+      sha256: dd3d221d223f4a38816835e7a887a401a808c583d11d793ef04a60e4f13e781e
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   scroll_pos:
     dependency: transitive
     description:
@@ -858,6 +866,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      sha256: "5de7df5e372ad476c144327f06503190b940b84d5bcfa407ee49b24f1c42e14d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "26.2.5"
+  syncfusion_flutter_gauges:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_gauges
+      sha256: d65a19d5446c1e022722be3629c8872c8cb0905aff6561ca469bfa1b0d248b4b
+      url: "https://pub.dev"
+    source: hosted
+    version: "26.2.5"
   synchronized:
     dependency: transitive
     description:
