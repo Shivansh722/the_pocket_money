@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -6,7 +7,6 @@ import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pocket_money/src/presentation/screens/fln_pages/literacy_numeracy_page.dart';
 import 'package:pocket_money/src/presentation/screens/fln_pages/result.dart';
- // Import the next screen
 
 class AudioRecorder extends StatefulWidget {
   @override
@@ -57,7 +57,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
     try {
       await _recorder.startRecorder(
         toFile: _filePath,
-        codec: Codec.aacADTS, // Use a supported codec
+        codec: Codec.aacADTS,
       );
       setState(() {
         _isRecording = true;
@@ -121,40 +121,38 @@ class _AudioRecorderState extends State<AudioRecorder> {
     }
   }
 
- Future<void> _uploadRecording() async {
+  Future<void> _uploadRecording() async {
     if (_filePath.isNotEmpty) {
-        final file = File(_filePath);
+      try {
+        var uri = Uri.parse('http://10.9.15.155:8000/fluency');
+        var request = http.MultipartRequest('POST', uri)
+          ..files.add(await http.MultipartFile.fromPath('file', _filePath));
 
-        if (await file.exists()) {
-            print('File exists at $_filePath');
-            
-            try {
-                var uri = Uri.parse('http://10.9.15.155:8000/fluency');
-                var request = http.MultipartRequest('POST', uri)
-                  ..files.add(await http.MultipartFile.fromPath('file', _filePath)); // Ensure the field name is 'file'
-                
-                var response = await request.send();
+        var response = await request.send();
 
-                if (response.statusCode == 200) {
-                    print('File uploaded successfully');
-                    var responseBody = await response.stream.bytesToString();
-                    print('Response body: $responseBody');
-                } else {
-                    print('Failed to upload file, status code: ${response.statusCode}');
-                    var responseBody = await response.stream.bytesToString();
-                    print('Response body: $responseBody');
-                }
-            } catch (e) {
-                print('Error uploading file: $e');
-            }
+        if (response.statusCode == 200) {
+          print('File uploaded successfully');
+          var responseBody = await response.stream.bytesToString();
+          print('Response body: $responseBody');
+          var result = jsonDecode(responseBody);
+          var fluencyResult = result['Fluency Result'];
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ResultMeterScreen(fluencyResult: fluencyResult)),
+          );
         } else {
-            print('File not found at path: $_filePath');
+          print('Failed to upload file, status code: ${response.statusCode}');
+          var responseBody = await response.stream.bytesToString();
+          print('Response body: $responseBody');
         }
+      } catch (e) {
+        print('Error uploading file: $e');
+      }
     } else {
-        print('File path is empty');
+      print('File path is empty');
     }
-}
-
+  }
 
   void _retest() {
     setState(() {
@@ -166,7 +164,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
   void _navigateToNextScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => QuizScreen()),
+      MaterialPageRoute(builder: (context) => QuizScreen)()),
     );
   }
 
@@ -183,7 +181,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
           Container(
             alignment: Alignment.topCenter,
             padding: EdgeInsets.all(16.0),
-            child: Image.asset('assets/mic.gif'), // Replace with your asset
+            child: Image.asset('assets/mic.gif'),
           ),
           if (_filePath.isNotEmpty) ...[
             Card(
@@ -204,10 +202,6 @@ class _AudioRecorderState extends State<AudioRecorder> {
             ElevatedButton(
               onPressed: _uploadRecording,
               child: Text('Upload Recording'),
-            ),
-            ElevatedButton(
-              onPressed: _navigateToNextScreen,
-              child: Text('Submit'),
             ),
           ],
           if (!_isRecording) ...[

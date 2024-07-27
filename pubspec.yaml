@@ -49,6 +49,7 @@ dependencies:
   path_provider:
   permission_handler:
   http:
+  syncfusion_flutter_gauges:
   
   record_mp3:
 
