@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_money/core/themes.dart';
+import 'package:pocket_money/src/presentation/screens/form/form.dart';
 import 'package:pocket_money/src/presentation/screens/splash_page.dart';
 import 'package:pocket_money/src/presentation/screens/notification_page.dart';
 import 'package:pocket_money/src/presentation/screens/home/the_og_home_page.dart';
-import 'package:pocket_money/src/presentation/screens/form/form.dart';
+
 
 void main() {
+   
   runApp(const MyApp());
 }
 

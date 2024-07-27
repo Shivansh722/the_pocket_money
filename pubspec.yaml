@@ -49,9 +49,10 @@ dependencies:
   path_provider:
   permission_handler:
   http:
+  
+  record_mp3:
 
   flutter_typeahead:
-  textfield_tags:
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:pocket_money/src/presentation/screens/fln_pages/result.dart';
+ // Import the next screen
 
 class AudioRecorder extends StatefulWidget {
   @override
@@ -118,25 +120,53 @@ class _AudioRecorderState extends State<AudioRecorder> {
     }
   }
 
-  Future<void> _uploadRecording() async {
+ Future<void> _uploadRecording() async {
     if (_filePath.isNotEmpty) {
-      var uri = Uri.parse('http://0.0.0.0:8000/fluency');
-      var request = http.MultipartRequest('POST', uri)
-        ..files.add(await http.MultipartFile.fromPath('audio', _filePath));
-      var response = await request.send();
-      if (response.statusCode == 200) {
-        print('File uploaded successfully');
-      } else {
-        print('Failed to upload file');
-      }
+        final file = File(_filePath);
+
+        if (await file.exists()) {
+            print('File exists at $_filePath');
+            
+            try {
+                var uri = Uri.parse('http://10.9.15.155:8000/fluency');
+                var request = http.MultipartRequest('POST', uri)
+                  ..files.add(await http.MultipartFile.fromPath('file', _filePath)); // Ensure the field name is 'file'
+                
+                var response = await request.send();
+
+                if (response.statusCode == 200) {
+                    print('File uploaded successfully');
+                    var responseBody = await response.stream.bytesToString();
+                    print('Response body: $responseBody');
+                } else {
+                    print('Failed to upload file, status code: ${response.statusCode}');
+                    var responseBody = await response.stream.bytesToString();
+                    print('Response body: $responseBody');
+                }
+            } catch (e) {
+                print('Error uploading file: $e');
+            }
+        } else {
+            print('File not found at path: $_filePath');
+        }
+    } else {
+        print('File path is empty');
     }
-  }
+}
+
 
   void _retest() {
     setState(() {
       _filePath = '';
     });
     _startRecording();
+  }
+
+  void _navigateToNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ResultMeterScreen()),
+    );
   }
 
   @override
@@ -173,6 +203,10 @@ class _AudioRecorderState extends State<AudioRecorder> {
             ElevatedButton(
               onPressed: _uploadRecording,
               child: Text('Upload Recording'),
+            ),
+            ElevatedButton(
+              onPressed: _navigateToNextScreen,
+              child: Text('Submit'),
             ),
           ],
           if (!_isRecording) ...[
