@@ -44,6 +44,8 @@ dependencies:
   fluent_ui: ^4.9.0
   textfield_tags: ^3.0.1
 
+  flutter_typeahead:
+  textfield_tags:
 
 dev_dependencies:
   flutter_test:
