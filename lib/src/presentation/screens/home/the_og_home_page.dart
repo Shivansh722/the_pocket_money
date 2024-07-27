@@ -69,6 +69,12 @@ class _StudentHomePageState extends State<StudentHomePage> {
                 },
               ),
               SizedBox(height: 16.0),
+
+              Text(
+                'Top Companies',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 4.0),
               // Horizontal list of Company Tiles
               Container(
                 height: 120.0, // Adjust the height as needed
