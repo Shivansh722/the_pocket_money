@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_money/core/themes.dart';
 import 'package:pocket_money/src/presentation/screens/splash_page.dart';
 import 'package:pocket_money/src/presentation/screens/notification_page.dart';
+import 'package:pocket_money/src/presentation/screens/home/the_og_home_page.dart';
 import 'package:pocket_money/src/presentation/screens/form/form.dart';
 
 void main() {
@@ -13,13 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Demo',
+
       debugShowCheckedModeBanner: false,
-      title: 'Pocket Money',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MultiStepForm(),
+      theme: lightMode,
+      home: const SplashPage(),
     );
   }
 }
