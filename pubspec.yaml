@@ -39,6 +39,8 @@ dependencies:
   navbar_router: ^0.7.5
   dotted_border:
 
+  flutter_typeahead:
+  textfield_tags:
 
 dev_dependencies:
   flutter_test:
