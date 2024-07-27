@@ -36,7 +36,7 @@ class _Page4State extends State<Page4> {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -182,8 +182,7 @@ class _Page4State extends State<Page4> {
                               onChanged: (value) {},
                             ),
                           ],
-
-
+        
                           if (selectedEducationLevel == '12th Pass') ...[
                             DropdownButtonFormField<String>(
                               decoration: const InputDecoration(
@@ -281,8 +280,7 @@ class _Page4State extends State<Page4> {
                               ),
                             ),
                           ],
-
-
+        
                           if (selectedEducationLevel == 'ITI') ...[
                             const TextField(
                               decoration: InputDecoration(
@@ -313,28 +311,13 @@ class _Page4State extends State<Page4> {
                               ),
                             ),
                           ],
-
-
+        
                           if (selectedEducationLevel == 'Graduate') ...[
-                            DropdownButtonFormField<String>(
-                              decoration: const InputDecoration(
-                                labelText: 'Degree',
+                            const TextField(
+                              decoration: InputDecoration(
+                                labelText: 'Degree Name',
                                 border: OutlineInputBorder(),
                               ),
-                              items: const [
-                                DropdownMenuItem(value: 'M.Sc', child: Text('M.Sc')),
-                                DropdownMenuItem(value: 'M.Com', child: Text('M.Com')),
-                                DropdownMenuItem(value: 'B.Com', child: Text('B.Com')),
-                                DropdownMenuItem(value: 'M.A', child: Text('M.A')),
-                                DropdownMenuItem(value: 'M.Tech', child: Text('M.Tech')),
-                                DropdownMenuItem(value: 'B.Tech', child: Text('B.Tech')),
-                                DropdownMenuItem(value: 'B.Sc', child: Text('B.Sc')),
-                                DropdownMenuItem(value: 'MBA', child: Text('MBA')),
-                                DropdownMenuItem(value: 'MCA', child: Text('MCA')),
-                                DropdownMenuItem(value: 'LLM', child: Text('LLM')),
-                                DropdownMenuItem(value: 'MD', child: Text('MD')),
-                              ],
-                              onChanged: (value) {},
                             ),
                             const SizedBox(height: 10),
                             DropdownButtonFormField<String>(
@@ -375,33 +358,18 @@ class _Page4State extends State<Page4> {
                             const SizedBox(height: 10),
                             const TextField(
                               decoration: InputDecoration(
-                                labelText: 'College Name',
+                                labelText: 'University Name',
                                 border: OutlineInputBorder(),
                               ),
                             ),
                           ],
-
-              
+        
                           if (selectedEducationLevel == 'Post Graduate') ...[
-                            DropdownButtonFormField<String>(
-                              decoration: const InputDecoration(
-                                labelText: 'Degree',
+                            const TextField(
+                              decoration: InputDecoration(
+                                labelText: 'Degree Name',
                                 border: OutlineInputBorder(),
                               ),
-                              items: const [
-                                DropdownMenuItem(value: 'M.Sc', child: Text('M.Sc')),
-                                DropdownMenuItem(value: 'M.Com', child: Text('M.Com')),
-                                DropdownMenuItem(value: 'B.Com', child: Text('B.Com')),
-                                DropdownMenuItem(value: 'M.A', child: Text('M.A')),
-                                DropdownMenuItem(value: 'M.Tech', child: Text('M.Tech')),
-                                DropdownMenuItem(value: 'B.Tech', child: Text('B.Tech')),
-                                DropdownMenuItem(value: 'B.Sc', child: Text('B.Sc')),
-                                DropdownMenuItem(value: 'MBA', child: Text('MBA')),
-                                DropdownMenuItem(value: 'MCA', child: Text('MCA')),
-                                DropdownMenuItem(value: 'LLM', child: Text('LLM')),
-                                DropdownMenuItem(value: 'MD', child: Text('MD')),
-                              ],
-                              onChanged: (value) {},
                             ),
                             const SizedBox(height: 10),
                             DropdownButtonFormField<String>(
@@ -442,11 +410,19 @@ class _Page4State extends State<Page4> {
                             const SizedBox(height: 10),
                             const TextField(
                               decoration: InputDecoration(
-                                labelText: 'College Name',
+                                labelText: 'University Name',
                                 border: OutlineInputBorder(),
                               ),
                             ),
                           ],
+        
+                          const SizedBox(height: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Implement the continue action
+                            },
+                            child: const Text('Continue'),
+                          ),
                         ],
                       ),
                     ),

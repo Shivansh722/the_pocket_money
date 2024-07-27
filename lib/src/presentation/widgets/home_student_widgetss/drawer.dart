@@ -19,7 +19,8 @@ class HomeStudentDrawer extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('assets/user1.jpg'), // replace with your image asset
+                      backgroundImage: AssetImage(
+                          'assets/user1.jpg'), // replace with your image asset
                     ),
                     SizedBox(height: 10),
                     Text(
@@ -50,7 +51,8 @@ class HomeStudentDrawer extends StatelessWidget {
               // Handle the tap
             },
           ),
-          Divider(thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
+          Divider(
+              thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
           ListTile(
             leading: Icon(Icons.settings),
             trailing: Icon(Icons.arrow_forward_ios, size: 15),
@@ -59,7 +61,8 @@ class HomeStudentDrawer extends StatelessWidget {
               // Handle the tap
             },
           ),
-          Divider(thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
+          Divider(
+              thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
           ListTile(
             leading: Icon(Icons.feedback),
             trailing: Icon(Icons.arrow_forward_ios, size: 15),
@@ -68,7 +71,8 @@ class HomeStudentDrawer extends StatelessWidget {
               // Handle the tap
             },
           ),
-          Divider(thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
+          Divider(
+              thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
           ListTile(
             leading: Icon(Icons.help),
             trailing: Icon(Icons.arrow_forward_ios, size: 15),
@@ -77,7 +81,8 @@ class HomeStudentDrawer extends StatelessWidget {
               // Handle the tap
             },
           ),
-          Divider(thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
+          Divider(
+              thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
           ListTile(
             leading: Icon(Icons.logout),
             trailing: Icon(Icons.arrow_forward_ios, size: 15),
@@ -92,20 +97,22 @@ class HomeStudentDrawer extends StatelessWidget {
             child: Stack(
               children: [
                 Center(
-                  child: Image.asset('assets/mascot 1.png', height: 100), // replace with your mascot asset
+                  child: Image.asset('assets/mascot 1.png',
+                      height: 100), // replace with your mascot asset
                 ),
                 Positioned(
                   bottom: 0,
-                  left: -20,
-                  child: Image.asset('assets/Vector1.png', width: 120, height: 100), // replace with your blob asset
+                  left: -30,
+                  child: Image.asset('assets/Vector1.png',
+                      width: 120, height: 120), // replace with your blob asset
                 ),
                 Positioned(
-                  bottom: 0,
+                  bottom: -10,
                   top: 10,
-                  right: -40,
-                  child: Image.asset('assets/Vector2.png', width: 140, height: 140), // replace with your blob asset
+                  right: -50,
+                  child: Image.asset('assets/Vector2.png',
+                      width: 140, height: 150), // replace with your blob asset
                 ),
-                
               ],
             ),
           ),
