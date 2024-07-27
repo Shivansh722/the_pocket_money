@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:pocket_money/src/presentation/screens/fln_pages/literacy_numeracy_page.dart';
 import 'package:pocket_money/src/presentation/screens/fln_pages/result.dart';
  // Import the next screen
 
@@ -165,7 +166,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
   void _navigateToNextScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ResultMeterScreen()),
+      MaterialPageRoute(builder: (context) => QuizScreen()),
     );
   }
 
