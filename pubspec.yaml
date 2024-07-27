@@ -43,6 +43,12 @@ dependencies:
   geocoding: ^3.0.0
   fluent_ui: ^4.9.0
   textfield_tags: ^3.0.1
+  audioplayers: ^6.0.0
+  video_player: ^2.9.1
+  flutter_sound:
+  path_provider:
+  permission_handler:
+  http:
 
 
 dev_dependencies:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_money/src/presentation/screens/fln_pages/fln_intro.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/appbar.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/drawer.dart';
 import 'package:pocket_money/src/presentation/widgets/home_student_widgetss/job_tile.dart';
@@ -125,18 +126,4 @@ class StudentHomePage extends StatelessWidget {
   }
 }
 
-class SortPage extends StatelessWidget {
-  const SortPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Sort Page'),
-      ),
-      body: Center(
-        child: Text('This is the Sort Page'),
-      ),
-    );
-  }
-}
