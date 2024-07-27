@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_money/src/presentation/screens/form/form.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -9,6 +10,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  int _durationInSeconds = 3;
 
   @override
   void initState() {
@@ -20,6 +22,11 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
 
     // Start the animation
     _controller.forward();
+
+    Future.delayed(Duration(seconds: _durationInSeconds), () {
+      // Navigate to the next screen after the delay
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FormPage())); // Replace NextScreen with your actual screen
+    });
   }
 
   @override

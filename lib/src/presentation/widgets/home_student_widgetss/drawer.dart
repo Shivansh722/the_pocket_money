@@ -11,7 +11,7 @@ class HomeStudentDrawer extends StatelessWidget {
           Stack(
             children: [
               DrawerHeader(
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
                 ),
                 child: Column(
@@ -95,15 +95,14 @@ class HomeStudentDrawer extends StatelessWidget {
                   child: Image.asset('assets/mascot 1.png', height: 100), // replace with your mascot asset
                 ),
                 Positioned(
-                  top:0,
                   bottom: 0,
-                  left: -40,
+                  left: -20,
                   child: Image.asset('assets/Vector1.png', width: 120, height: 100), // replace with your blob asset
                 ),
                 Positioned(
                   bottom: 0,
-                  top: 30,
-                  right: -60,
+                  top: 10,
+                  right: -40,
                   child: Image.asset('assets/Vector2.png', width: 140, height: 140), // replace with your blob asset
                 ),
                 

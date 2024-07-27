@@ -38,6 +38,11 @@ dependencies:
   flutter_onboarding_slider:
   navbar_router: ^0.7.5
   dotted_border:
+  image_picker: ^1.1.2
+  geolocator: 
+  geocoding: ^3.0.0
+  fluent_ui: ^4.9.0
+  textfield_tags: ^3.0.1
 
 
 dev_dependencies:

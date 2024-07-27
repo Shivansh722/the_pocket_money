@@ -33,11 +33,11 @@ class SortTile extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0), // Space between text and image
+                 // Space between text and image
                 Image.asset(
                   'assets/mascot3.png', // Replace with your asset path
-                  width: 80.0,
-                  height: 80.0,
+                  width: 170.0,
+                  height: 150.0,
                 ),
               ],
             ),
