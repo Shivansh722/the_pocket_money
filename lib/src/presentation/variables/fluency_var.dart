@@ -1,0 +1,1 @@
+double globalFluencyPercentage = 0.0;
