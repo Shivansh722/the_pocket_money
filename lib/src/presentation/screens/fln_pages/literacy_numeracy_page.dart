@@ -62,10 +62,12 @@ class _QuizScreenState extends State<QuizScreen> {
       if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
       } else {
+        double quizPercentage = (score / questions.length) * 100;
+
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ScoreScreen(score: score, totalQuestions: questions.length),
+            builder: (context) => ScoreScreen(quizPercentage: quizPercentage),
           ),
         );
       }
@@ -88,7 +90,7 @@ class _QuizScreenState extends State<QuizScreen> {
             SizedBox(height: 20),
             Text(
               questions[currentQuestionIndex].text,
-              style: TextStyle(fontSize: 16.0),
+              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
             ...questions[currentQuestionIndex].options.map((option) {

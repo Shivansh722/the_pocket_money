@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_money/src/presentation/screens/fln_pages/literacy_numeracy_page.dart';
+import 'package:pocket_money/src/presentation/variables/fluency_var.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ResultMeterScreen extends StatelessWidget {
@@ -34,6 +36,8 @@ class ResultMeterScreen extends StatelessWidget {
         percentageText = '0%';
     }
 
+    globalFluencyPercentage = value;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Fluency Result'),
@@ -42,6 +46,7 @@ class ResultMeterScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 50),
             SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
@@ -84,6 +89,23 @@ class ResultMeterScreen extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: rangeColor,
+              ),
+            ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.green,
+                  fixedSize: Size(MediaQuery.sizeOf(context).width/1.1,25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen()));
+                },
+                child: const Text('Next'),
               ),
             ),
           ],

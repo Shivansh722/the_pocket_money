@@ -161,13 +161,6 @@ class _AudioRecorderState extends State<AudioRecorder> {
     _startRecording();
   }
 
-  void _navigateToNextScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => QuizScreen)()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
