@@ -78,36 +78,46 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Quiz')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Question ${currentQuestionIndex + 1}/${questions.length}',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/sbg.png', // Replace with your image path
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 20),
-            Text(
-              questions[currentQuestionIndex].text,
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            ...questions[currentQuestionIndex].options.map((option) {
-              int optionIndex = questions[currentQuestionIndex].options.indexOf(option);
-              return ListTile(
-                title: Text(option),
-                leading: Radio(
-                  value: optionIndex,
-                  groupValue: null,
-                  onChanged: (value) {
-                    _nextQuestion(value as int);
-                  },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Question ${currentQuestionIndex + 1}/${questions.length}',
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
-              );
-            }).toList(),
-          ],
-        ),
+                SizedBox(height: 20),
+                Text(
+                  questions[currentQuestionIndex].text,
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                ...questions[currentQuestionIndex].options.map((option) {
+                  int optionIndex = questions[currentQuestionIndex].options.indexOf(option);
+                  return ListTile(
+                    title: Text(option),
+                    leading: Radio(
+                      value: optionIndex,
+                      groupValue: null,
+                      onChanged: (value) {
+                        _nextQuestion(value as int);
+                      },
+                    ),
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

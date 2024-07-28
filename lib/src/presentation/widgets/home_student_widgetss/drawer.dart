@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_money/src/presentation/screens/user_profile/user_profile.dart';
 
 class HomeStudentDrawer extends StatelessWidget {
   const HomeStudentDrawer({Key? key}) : super(key: key);
@@ -19,8 +20,7 @@ class HomeStudentDrawer extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage(
-                          'assets/user1.jpg'), // replace with your image asset
+                      backgroundImage: AssetImage('assets/user1.jpg'), // replace with your image asset
                     ),
                     SizedBox(height: 10),
                     Text(
@@ -48,7 +48,10 @@ class HomeStudentDrawer extends StatelessWidget {
             trailing: Icon(Icons.arrow_forward_ios, size: 15),
             title: Text('View Profile'),
             onTap: () {
-              // Handle the tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  UserProfileScreen()),
+              );
             },
           ),
           Divider(
