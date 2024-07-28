@@ -21,6 +21,19 @@ Pocket Money is an innovative app designed for young adults aged 16 to 24. It co
 
 6. **Notifications**: Receive timely notifications about new job postings, application statuses, and more.
 
+## USP
+
+This application is **not a social media platform** but a **professional profile-building space**. It helps students build their vocational profiles, work part-time to earn their living costs, and make decisions for themselves.
+
+## THE FLN SCORING SYSTEM: 
+This is an assessment system where using ML model( for checking the fluency of the user in English speech ) and vector storage (for retrieval of their literacy and numeracy baseed tests ). This would be a game changer while comparing two employs who are to work at a place. This assessment would assure that they are 
+**1. FLUENT IN ENGLISH
+2. THEY ARE LITERATE
+3. THEY HAVE SANE NUMERICAL IDEAS.**
+This would provide the employers as a one stop hiring solution as well as would provide the students a respectable platform to gain a part time job.
+
+
+
 
 ## Contributing
 
