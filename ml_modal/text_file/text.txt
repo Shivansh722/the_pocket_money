@@ -1,4 +1,68 @@
-1) Do you know English? (tag: hard)
-a) Yes
-b) No
-c) Average
+Choose the correct form of the verb:
+He ___ to the store yesterday.
+a) go
+b) goes
+c) went
+d) going
+
+Identify the adjective in the following sentence:
+The quick brown fox jumps over the lazy dog.
+a) fox
+b) jumps
+c) quick
+d) dog
+
+Select the correct pronoun to complete the sentence:
+Maria and ___ are going to the concert tonight.
+a) me
+b) I
+c) mine
+d) myself
+
+Choose the correct preposition:
+He is good ___ playing basketball.
+a) in
+b) at
+c) on
+d) of
+
+Identify the correct conjunction to join the sentences:
+I wanted to go for a walk. It started to rain.
+a) but
+b) or
+c) so
+d) because
+
+Choose the correct article:
+She adopted ___ cat from the shelter.
+a) a
+b) an
+c) the
+d) no article
+
+Identify the correct form of the adjective:
+This is the ___ book I have ever read.
+a) interesting
+b) more interesting
+c) most interesting
+d) interestingest
+
+Choose the correct verb tense:
+By next year, they ___ in their new house for two years.
+a) will live
+b) will have lived
+c) have lived
+d) had lived
+
+Select the correct possessive pronoun:
+That book is not mine; it is ___.
+a) yours
+b) your
+c) you
+d) you're
+
+Identify the correct sentence:
+a) The childrens toys were scattered all over the floor.
+b) The children's toys were scattered all over the floor.
+c) The childrens' toys were scattered all over the floor.
+d) The childrens's toys were scattered all over the floor.
