@@ -1,13 +1,13 @@
 
 # The Project Money
 
-Revolutionizing Employment Opportunities for India's Youth
+**Revolutionizing Employment Opportunities for India's Youth**
 
-When considering India's youth (ages 16 to 25), we often see students who have been focused on their studies from a young age. However, many of these college students still rely on their parents for "pocket money," which limits their independence and keeps them within a world controlled by parental decisions and scrutiny.
+When considering **India's youth (ages 16 to 25)**, we often see students who have been focused on their studies from a young age. However, many of these college students still rely on their parents for "pocket money," which limits **their independence and keeps them within a world controlled by parental decisions and scrutiny**.
 
-In parallel, we observe that India's employment drive largely depends on Micro, Small & Medium Enterprises (MSMEs) and local stores in our markets. These sectors provide the bulk of employment opportunities in India. However, this system has faltered over the last decade. To address this, we have developed a solution that creates a completely new field of opportunities.
+In parallel, we observe that **India's employment drive largely depends on Micro, Small & Medium Enterprises (MSMEs) and local stores in our markets**. These **sectors provide the bulk of employment opportunities in India**. However, this system has faltered over the last decade. To address this, we have developed a solution that creates a completely new field of opportunities.
 
-We also need to recognize what international companies with elite stores (like McDonald's and Domino's) require when they enter India. They need a skilled, well-versed English-speaking workforce at the ground level to enhance customer experience. However, there has always been a shortage of such a workforce. The solution lies in our hands, but cultural and traditional factors often prevent Indian youth from pursuing these opportunities. They lack a respectable platform to approach these companies or local stores. Moreover, bias and complications at these stores have discouraged kids from well-to-do families from taking up such jobs.
+We also need to recognize what international companies with elite stores (like McDonald's and Domino's) require when they enter India. They **need a skilled, well-versed English-speaking workforce at the ground level to enhance customer experience**. However, there has always been a shortage of such a workforce. The solution lies in our hands, but cultural and traditional factors often prevent Indian youth from pursuing these opportunities. They **lack a respectable platform to approach these companies or local stores**. Moreover, bias and complications at these stores have discouraged kids from well-to-do families from taking up such jobs.
 
 Our research into part-time jobs in North America, Europe, and Australia reveals that these regions have long embraced a work culture that balances studies and real-world exposure. This is a valuable lesson for us: to understand that studies alone are not life and that real-world exposure is crucial.
 
@@ -129,6 +129,11 @@ Install the required dependencies by running the following command in the projec
 To run the app on an emulator or a connected device, use:
 
     flutter run
+
+  ## How to run the backend server?
+1. `cd ml_model`
+2. `pip install -r requirement.txt`
+3. `python main.py` 
 
 ## Screenshots
 
