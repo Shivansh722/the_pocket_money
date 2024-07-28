@@ -10,7 +10,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  int _durationInSeconds = 3;
+  int _durationInSeconds = 7;
 
   @override
   void initState() {
