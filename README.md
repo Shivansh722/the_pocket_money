@@ -1,16 +1,27 @@
 
+> [!TIP]
+> Optional information to help a user be more successful.
+
+
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 # The Project Money
 
 **Revolutionizing Employment Opportunities for India's Youth**
 
 When considering **India's youth (ages 16 to 25)**, we often see students who have been focused on their studies from a young age. However, many of these college students still rely on their parents for "pocket money," which limits **their independence and keeps them within a world controlled by parental decisions and scrutiny**.
 
-In parallel, we observe that **India's employment drive largely depends on Micro, Small & Medium Enterprises (MSMEs) and local stores in our markets**. These **sectors provide the bulk of employment opportunities in India**. However, this system has faltered over the last decade. To address this, we have developed a solution that creates a completely new field of opportunities.
+> [!IMPORTANT]  
+> In parallel, we observe that **India's employment drive largely depends on Micro, Small & Medium Enterprises (MSMEs) and local stores in our markets**. These **sectors provide the bulk of employment opportunities in India**. However, this system has faltered over the last decade. To address this, we have developed a solution that creates a completely new field of opportunities.
 
 We also need to recognize what international companies with elite stores (like McDonald's and Domino's) require when they enter India. They **need a skilled, well-versed English-speaking workforce at the ground level to enhance customer experience**. However, there has always been a shortage of such a workforce. The solution lies in our hands, but cultural and traditional factors often prevent Indian youth from pursuing these opportunities. They **lack a respectable platform to approach these companies or local stores**. Moreover, bias and complications at these stores have discouraged kids from well-to-do families from taking up such jobs.
 
-Our research into part-time jobs in North America, Europe, and Australia reveals that these regions have long embraced a work culture that balances studies and real-world exposure. This is a valuable lesson for us: to understand that studies alone are not life and that real-world exposure is crucial.
-
+> [!NOTE]  
+> Our research into part-time jobs in North America, Europe, and Australia reveals that these regions have long embraced a work culture that balances studies and real-world exposure. This is a valuable lesson for us: to understand that studies alone are not life and that real-world exposure is crucial.
 
 ## Features
 
@@ -35,9 +46,10 @@ This application is **not a social media platform** but a **professional profile
 
 ## THE FLN SCORING SYSTEM: 
 This is an assessment system where using ML model( for checking the fluency of the user in English speech ) and vector storage (for retrieval of their literacy and numeracy baseed tests ). This would be a game changer while comparing two employs who are to work at a place. This assessment would assure that they are 
-**1. FLUENT IN ENGLISH
-2. THEY ARE LITERATE
-3. THEY HAVE SANE NUMERICAL IDEAS.**
+- **FLUENT** in English
+- They are **LITERATE**
+- They have **SANE NUMERICAL** Ideas.
+   
 This would provide the employers as a one stop hiring solution as well as would provide the students a respectable platform to gain a part time job.
 
 
