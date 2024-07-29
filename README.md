@@ -1,14 +1,3 @@
-
-> [!TIP]
-> Optional information to help a user be more successful.
-
-
-
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]
-> Negative potential consequences of an action.
 # The Project Money
 
 **Revolutionizing Employment Opportunities for India's Youth**
