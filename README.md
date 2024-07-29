@@ -1,4 +1,4 @@
-# The Project Money
+# The Pocket Money
 
 **Revolutionizing Employment Opportunities for India's Youth**
 
