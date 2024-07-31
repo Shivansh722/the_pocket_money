@@ -1,35 +1,49 @@
-from langchain_mistralai import MistralAIEmbeddings
 from dotenv import load_dotenv
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain.text_splitter import TextSplitter
 from langchain_community.document_loaders import TextLoader
-from langchain_community.vectorstores import SupabaseVectorStore
-from supabase.client import Client, create_client
+from langchain_mongodb.vectorstores import MongoDBAtlasVectorSearch
 import os
-import json
 
 load_dotenv()
 
-supabase_url = os.getenv("SUPABASE_URL")
-supabase_key = os.getenv("SUPABASE_SERVICE_KEY")
+class customTextSplitter(TextSplitter):
+    def split_text(self,text):
+        return text.strip().split("\n\n")
 
-supabase: Client = create_client(supabase_url, supabase_key)
+def store_vector(collection):
+    loader = TextLoader('text_file/text.txt')
+    docs = loader.load()
+    
+    text_splitter = customTextSplitter()
+    splits = text_splitter.split_documents(docs)
+    
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key=os.getenv('GEMINI_API_KEY'))
+    
+    store = [] 
+
+    for split in splits:
+        store.append(split.page_content)
+    
+    # collection.delete_many({})
+        
+    MongoDBAtlasVectorSearch.from_documents(splits, embeddings, collection=collection, index_name="embeddings")
+    # print(docsearch)
+    print("Embeddings saved to MongoDB vector base")
+    return "Embeddings saved to MongoDB vector base"
 
 
-loader = TextLoader('text_file/text.txt')
-docs = loader.load()
+def query_vector_embedding(collection,query):
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key=os.getenv('GEMINI_API_KEY'))
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=50, chunk_overlap=2)
-splits = text_splitter.split_documents(docs)
-
-embeddings = MistralAIEmbeddings(model="mistral-embed", mistral_api_key=os.getenv('MISTRAL_AI_API'))
-split_texts = [split.page_content for split in splits]
-embedding_vectors = embeddings.embed_documents(split_texts)
-
-for text, embedding in zip(split_texts, embedding_vectors):
-    data = {
-        "content": text,
-        "embedding": embedding
-    }
-    response = supabase.table("handbook_docs").insert(data).execute()
-    print(response)
-
+    vectorStore = MongoDBAtlasVectorSearch(collection, embeddings, index_name="vector_index")
+    
+    try:
+        print("inside the function")
+        print(query)
+        docs = vectorStore.similarity_search(query, K=4)
+        print("Vector Search Results:")
+        print(len(docs))
+        return docs
+    except Exception as e:
+        print("Database timeout or error:", str(e))
