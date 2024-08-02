@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:pocket_money/src/presentation/screens/fln_pages/literacy_numeracy_page.dart';
 import 'package:pocket_money/src/presentation/screens/fln_pages/result.dart';
+import 'package:pocket_money/src/presentation/screens/fln_pages/literacy_numeracy_page.dart';
 
 class AudioRecorder extends StatefulWidget {
   @override
@@ -124,7 +124,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
   Future<void> _uploadRecording() async {
     if (_filePath.isNotEmpty) {
       try {
-        var uri = Uri.parse('http://10.9.15.155:8000/fluency');
+        var uri = Uri.parse('http://10.3.159.118:8000/fluency');
         var request = http.MultipartRequest('POST', uri)
           ..files.add(await http.MultipartFile.fromPath('file', _filePath));
 

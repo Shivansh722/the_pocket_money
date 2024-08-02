@@ -50,7 +50,7 @@ class HomeStudentDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  UserProfileScreen()),
+                MaterialPageRoute(builder: (context) =>  UserProfile()),
               );
             },
           ),
