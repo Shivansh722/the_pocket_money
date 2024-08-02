@@ -94,6 +94,16 @@ class HomeStudentDrawer extends StatelessWidget {
               // Handle the tap
             },
           ),
+Divider(
+              thickness: 1, color: Colors.grey[300], indent: 17, endIndent: 10),
+          ListTile(
+            leading: Icon(Icons.feedback),
+            trailing: Icon(Icons.arrow_forward_ios, size: 15),
+            title: Text('Feedback'),
+            onTap: () {
+              // Handle the tap
+            },
+          ),
           Spacer(),
           Padding(
             padding: const EdgeInsets.all(0.0),

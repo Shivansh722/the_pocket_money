@@ -1,4 +1,69 @@
-1) Do you know English? (tag: hard)
-a) Yes
-b) No
-c) Average
+Identify the correct plural form: tag(easy)
+Which is the correct plural form of "mouse"?
+a) mouses
+b) mouse
+c) mice
+d) mousies
+
+Choose the correct tense: tag(medium)
+By this time next year, she ___ her degree.
+a) will have completed
+b) has completed
+c) will complete
+d) completed
+
+Select the appropriate preposition: tag(easy)
+She was born ___ January.
+a) in
+b) on
+c) at
+d) for
+
+Choose the correct verb form: tag(medium)
+If I ___ you, I would apologize.
+a) was
+b) am
+c) were
+d) been
+
+Identify the correct article: tag(easy)
+She is ___ honest person.
+a) a
+b) an
+c) the
+d) none
+
+Select the correct conjunction: tag(hard)
+She studied hard ___ she could pass the exam.
+a) and
+b) but
+c) so
+d) or
+
+Choose the correct comparative form: tag(medium)
+This is the ___ book I have ever read.
+a) more interesting
+b) most interesting
+c) interesting
+d) interestingest
+
+Identify the correct pronoun: tag(easy)
+Everyone has to submit ___ project by tomorrow.
+a) his
+b) her
+c) their
+d) its
+
+Choose the correct adjective: tag(medium)
+She wore a ___ dress to the party.
+a) beautifully
+b) beautiful
+c) beauty
+d) beautify
+
+Identify the correct verb form: tag(hard)
+They suggested that he ___ early.
+a) leaves
+b) leaving
+c) leave
+d) left

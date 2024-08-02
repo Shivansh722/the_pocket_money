@@ -6,9 +6,17 @@ from fluency_meter_eng import prediction, visualize, vidtoaudio
 import uvicorn
 from pydub import AudioSegment
 import os
+from supabase.client import Client, create_client
+from dotenv import load_dotenv
+from pydantic import BaseModel
+from db.db import connect_to_mongo
+from embedding import store_vector,query_vector_embedding
+
+load_dotenv()
 
 app = FastAPI()
 new_model = tf.keras.models.load_model('my_model.h5')
+collection = connect_to_mongo()
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,10 +26,57 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+supabase_url = os.getenv("SUPABASE_URL")
+supabase_key = os.getenv("SUPABASE_SERVICE_KEY")
+
+supabase: Client = create_client(supabase_url, supabase_key)
+
 @app.get('/')
 def check():
     return {"hello world"}
 
+class Job(BaseModel):
+    title: str
+    description: str
+    salary: int
+    description: str
+    
+class prompt(BaseModel):
+    text: str
+    
+@app.post('/jobs')
+def create_job(Job: Job):
+    data = {
+        "title": Job.title,
+        "location": Job.description,
+        "salary": Job.salary,
+        "description": Job.description
+    }
+    supabase.table("jobs").insert(data).execute()
+
+@app.get('/jobs')
+def get_jobs():
+    response = supabase.table("jobs").select("*").execute()
+    return response
+
+@app.post('/signup')
+def signup(email: str, password: str):
+    data = {
+        "email": email,
+        "password": password
+    }
+    res = supabase.auth.sign_up(data)
+    return res
+
+@app.get('/login')
+def login(email: str, password: str):
+    data = {
+        "email": email,
+        "password": password
+    }
+    res = supabase.auth.sign_in_with_password(data)
+    return res
+    
 @app.post('/fluency')
 async def fluency(file: UploadFile = File(...)):
     try:
@@ -69,6 +124,19 @@ async def fluency(file: UploadFile = File(...)):
             return JSONResponse(status_code=400, content={"error": "Unsupported file format"})
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+    
+@app.post('/uploadvector')
+async def upload_to_vector():
+    res = store_vector(collection)
+    return JSONResponse(status_code=200,content={"message": res})
 
+@app.post('/query')
+async def query(query: prompt):
+    res = query_vector_embedding(collection,query.text)
+    # return JSONResponse(status_code=200,content={"message": res})
+    page_contents = [doc.page_content for doc in res]
+    return {"message": page_contents}
+    
+        
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="10.9.15.155", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
