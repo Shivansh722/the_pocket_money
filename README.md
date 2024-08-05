@@ -170,9 +170,9 @@ https://github.com/user-attachments/assets/8289f860-e15c-427a-b9c6-6e0c0ada2aab
 
 ## Authors
 
-- [@rjk51](https://www.github.com/rjk51)
-- [@Shivansh722](https://www.github.com/Shivansh722)
-- [@AMRITESH240304](https://www.github.com/AMRITESH240304)
-- [@AakashRawat04](https://www.github.com/AakashRawat04)
+- [rjk51](https://www.github.com/rjk51)
+- [Shivansh722](https://www.github.com/Shivansh722)
+- [AMRITESH240304](https://www.github.com/AMRITESH240304)
+- [AakashRawat04](https://www.github.com/AakashRawat04)
 
 
